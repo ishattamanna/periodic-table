@@ -1,17 +1,20 @@
 import React from 'react';
 
-const ElementCard = ({ element }) => {
+const ElementCard = ({ element, setSelectedElement }) => {
 
-    console.log(element);
+    const { symbol } = element;
 
-    const { name, symbol } = element;
+    const captureElement = () => {
+        setSelectedElement(element);
+    };
 
 
     return (
-        <div className="w-[75px] h-[100px] bg-blue-300 border-2 border-gray-500 border-solid">
+        <label
+            onClick={captureElement}
+            htmlFor="elementmodal" className="cursor-pointer w-[75px] h-[100px] text-black hover:text-white bg-blue-300 border-2 border-gray-500 border-solid btn">
             <p className="font-bold text-3xl mt-5">{symbol}</p>
-            <p>{name}</p>
-        </div>
+        </label>
     );
 };
 
